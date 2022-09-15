@@ -30,7 +30,7 @@ namespace Catalog.API.Repositories
                 .FirstOrDefaultAsync();
         }
 
-        public async Task<IEnumerable<Product>> GetProductByName(string name)
+        public async Task<IEnumerable<Product>> GetProductsByName(string name)
         {
             return await _context
                 .Products
@@ -38,7 +38,7 @@ namespace Catalog.API.Repositories
                 .ToListAsync();
         }
 
-        public async Task<IEnumerable<Product>> GetProductByCategory(string category)
+        public async Task<IEnumerable<Product>> GetProductsByCategory(string category)
         {
             return await _context
                 .Products
