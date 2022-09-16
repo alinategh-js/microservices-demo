@@ -1,4 +1,6 @@
 using Basket.API.Models.Settings;
+using Basket.API.Repositories;
+using Basket.API.Repositories.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +18,8 @@ builder.Services.AddStackExchangeRedisCache(options =>
 {
     options.Configuration = builder.Configuration["RedisDbSettings:ConnectionString"];
 });
+
+builder.Services.AddScoped<IBasketRepository, BasketRepository>();
 
 var app = builder.Build();
 
