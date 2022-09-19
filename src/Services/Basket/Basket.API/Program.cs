@@ -11,7 +11,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.Configure<BasketRedisSettings>(
+builder.Services.Configure<CartRedisSettings>(
     builder.Configuration.GetSection("RedisDbSettings"));
 
 builder.Services.AddStackExchangeRedisCache(options =>
@@ -19,7 +19,7 @@ builder.Services.AddStackExchangeRedisCache(options =>
     options.Configuration = builder.Configuration["RedisDbSettings:ConnectionString"];
 });
 
-builder.Services.AddScoped<IBasketRepository, BasketRepository>();
+builder.Services.AddScoped<ICartRepository, CartRepository>();
 
 var app = builder.Build();
 

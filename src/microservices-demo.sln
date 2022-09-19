@@ -11,9 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Catalog.API", "Services\Cat
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{429C376D-63AF-45BD-B1F9-99F1A3724609}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Basket", "Basket", "{73861537-6FE1-4DFF-976D-8F4906C03105}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cart", "Cart", "{73861537-6FE1-4DFF-976D-8F4906C03105}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Basket.API", "Services\Basket\Basket.API\Basket.API.csproj", "{2EE95A92-51DC-4B61-AF50-84B244DFCECC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cart.API", "Services\Basket\Basket.API\Cart.API.csproj", "{2EE95A92-51DC-4B61-AF50-84B244DFCECC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

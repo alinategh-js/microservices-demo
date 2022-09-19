@@ -5,15 +5,15 @@ using Newtonsoft.Json;
 
 namespace Basket.API.Repositories
 {
-    public class BasketRepository : IBasketRepository
+    public class CartRepository : ICartRepository
     {
         private readonly IDistributedCache _redisCache;
 
-        public BasketRepository(IDistributedCache redisCache)
+        public CartRepository(IDistributedCache redisCache)
         {
             _redisCache = redisCache;
         }
-        public async Task<ShoppingCart?> GetBasket(string username)
+        public async Task<ShoppingCart?> GetCart(string username)
         {
             var basketJson = await _redisCache.GetStringAsync(username);
 
@@ -23,14 +23,14 @@ namespace Basket.API.Repositories
             return JsonConvert.DeserializeObject<ShoppingCart>(basketJson);
         }
 
-        public async Task<ShoppingCart?> UpdateBasket(ShoppingCart basket)
+        public async Task<ShoppingCart?> UpdateCart(ShoppingCart basket)
         {
             var basketJson = JsonConvert.SerializeObject(basket);
             await _redisCache.SetStringAsync(basket.Username, basketJson);
-            return await GetBasket(basket.Username);
+            return await GetCart(basket.Username);
         }
 
-        public async Task DeleteBasket(string username)
+        public async Task DeleteCart(string username)
         {
             await _redisCache.RemoveAsync(username);
         }

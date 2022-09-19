@@ -9,8 +9,8 @@ services:
     volumes:
       - catalogdb_data:/data/db
 
-  basketdb:
-    container_name: basketdb
+  cartdb:
+    container_name: cartdb
     restart: always
     ports:
       - "6379:6379"
@@ -35,12 +35,12 @@ services:
     depends_on:
       - catalogdb
 
-  basket.api:
-    container_name: basket.api
+  cart.api:
+    container_name: cart.api
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - "RedisDbSettings:ConnectionString=basketdb:6379"
+      - "RedisDbSettings:ConnectionString=cartdb:6379"
     ports:
       - "8001:80"
     depends_on:
-      - basketdb
+      - cartdb

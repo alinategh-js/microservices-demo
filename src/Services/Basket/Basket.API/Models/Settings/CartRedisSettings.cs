@@ -1,6 +1,6 @@
 ﻿namespace Basket.API.Models.Settings
 {
-    public class BasketRedisSettings
+    public class CartRedisSettings
     {
         public string ConnectionString { get; set; }
     }
